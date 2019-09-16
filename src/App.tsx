@@ -2,6 +2,7 @@ import * as React from 'react';
 import {observer, inject} from 'mobx-react';
 import {IMobxStore} from './stores/mobxStore';
 import {Button} from 'antd';
+import MokeRedux from './views/hooks/Index';
 import './App.less';
 
 interface IAppProps {
@@ -20,6 +21,7 @@ class App extends React.Component<IAppProps> {
           {greeting}
           <Button onClick={this.clickHandler}>Change Greeting</Button>
         </header>
+        <MokeRedux />
       </div>
     );
   }
