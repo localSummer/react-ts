@@ -1,15 +1,11 @@
-import * as React from 'react';
-import { BgContext, IStore} from '../store/BgStore';
+import * as React from 'react'
+import { BgContext, IStore } from '../store/BgStore'
 
-interface IState {
-  name: string;
+interface IProps {
+  name: string
 }
 
-class GetState extends React.Component<{}, IState> {
-  public state = {
-    name: 'test'
-  };
-
+class GetState extends React.Component<IProps> {
   public render() {
     return (
       <BgContext.Consumer>
@@ -17,13 +13,13 @@ class GetState extends React.Component<{}, IState> {
           return (
             <div>
               <p>{props.state.background}</p>
-              <span>{this.state.name}</span>
+              <span>{this.props.name}</span>
             </div>
-          );
+          )
         }}
       </BgContext.Consumer>
     )
   }
 }
 
-export default GetState;
+export default GetState

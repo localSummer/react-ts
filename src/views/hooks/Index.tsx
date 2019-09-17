@@ -9,7 +9,7 @@ const MokeRedux: React.FC = () => {
     <BgSore>
       <Content />
       <Buttons />
-      <GetState />
+      <GetState name="test" />
     </BgSore>
   )
 }
