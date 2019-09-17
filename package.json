@@ -129,7 +129,11 @@
     }
   },
   "lint-staged": {
-    "{src,test}/**/*.{ts, tsx}": [
+    "{src,test}/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ],
+    "{src,test}/**/*.tsx": [
       "prettier --write",
       "git add"
     ]
