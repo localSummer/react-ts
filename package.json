@@ -52,7 +52,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "commit": "npx git-cz",
-    "lint": "npx tslint -p tsconfig.json -c tslint.json --fix"
+    "lint": "npx tslint -p tsconfig.json -c tslint.json"
   },
   "devDependencies": {
     "@types/jest": "^23.3.13",
@@ -64,6 +64,7 @@
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
     "lint-staged": "^9.2.5",
+    "prettier": "^1.18.2",
     "ts-import-plugin": "^1.5.5",
     "typescript": "^3.2.4"
   },
@@ -128,9 +129,13 @@
     }
   },
   "lint-staged": {
-    "{src,test}/**/*.{ts,tsx}": [
-      "npm run lint",
+    "{src,test}/**/*.ts": [
+      "prettier --write",
       "git add"
     ]
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
   }
 }

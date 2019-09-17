@@ -1,16 +1,16 @@
 function extend<T, U>(first: T, second: U): T & U {
-  const result = {} as T & U;
+  const result = {} as T & U
   for (const id in first) {
     if ((first as any)[id]) {
-      (result as any)[id] = (first as any)[id];
+      ;(result as any)[id] = (first as any)[id]
     }
   }
   for (const id in second) {
     if (!(result as any).hasOwnProperty(id)) {
-      (result as any)[id] = (second as any)[id];
+      ;(result as any)[id] = (second as any)[id]
     }
   }
-  return result;
+  return result
 }
 
 class Person {
@@ -18,15 +18,18 @@ class Person {
 }
 
 interface ILoggable {
-  log():void;
+  log(): void
 }
 
 class ConsoleLogger implements ILoggable {
   public log() {
-    console.log(111);   
+    console.log('111')
   }
 }
 
-const jim = extend<Person, ConsoleLogger>(new Person('Jim'), new ConsoleLogger());
+const jim = extend<Person, ConsoleLogger>(
+  new Person('Jim'),
+  new ConsoleLogger()
+)
 
-console.log(jim.name, jim.log());
+console.log(jim.name, jim.log())
