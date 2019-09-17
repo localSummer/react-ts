@@ -9,7 +9,7 @@
   },
   "rules": {
     "ordered-imports": false,
-    "no-console": false,
+    "no-console": true,
     "max-classes-per-file": [true, 5]
   }
 }

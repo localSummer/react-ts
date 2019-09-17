@@ -1,7 +1,7 @@
 {
   "name": "react-ts",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "antd": "^3.13.0",
     "autoprefixer": "7.1.6",
@@ -51,7 +51,8 @@
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "lint": "npx tslint -p tsconfig.json -c tslint.json --fix"
   },
   "devDependencies": {
     "@types/jest": "^23.3.13",
@@ -59,8 +60,10 @@
     "@types/react": "^16.7.22",
     "@types/react-dom": "^16.0.11",
     "cz-conventional-changelog": "^3.0.2",
+    "husky": "^3.0.5",
     "less": "^3.9.0",
     "less-loader": "^4.1.0",
+    "lint-staged": "^9.2.5",
     "ts-import-plugin": "^1.5.5",
     "typescript": "^3.2.4"
   },
@@ -118,5 +121,16 @@
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{src,test}/**/*.{ts,tsx}": [
+      "npm run lint",
+      "git add"
+    ]
   }
 }
