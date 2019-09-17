@@ -3,16 +3,16 @@ import { Button } from 'antd';
 import { BgContext, IStore } from '../store/BgStore';
 
 const Buttons: React.FC = () => {
-  const store: IStore = React.useContext(BgContext);
+  const store = React.useContext<IStore>(BgContext);
 
-  const handleClickBlue = () => {
+  const handleClickBlue = ():void => {
     store.dispatch!({
       type: 'UPDATE_BG',
       value: 'blue'
     });
   };
 
-  const handleClickOrange = () => {
+  const handleClickOrange = ():void => {
     store.dispatch!({
       type: 'UPDATE_BG',
       value: 'orange'
