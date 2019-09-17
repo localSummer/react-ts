@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { BgSore } from './store/BgStore'
 import Content from './components/Content'
 import Buttons from './components/Buttons'

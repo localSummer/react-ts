@@ -1,44 +1,41 @@
-import * as React from 'react';
+import React, { createContext, useReducer } from 'react'
 
 interface IState {
-  background: string;
+  background: string
 }
 
 interface IAction {
-  type: string;
-  value: string;
+  type: string
+  value: string
 }
 
 export interface IStore {
   state: {
     background: string
-  };
-  dispatch?: React.Dispatch<IAction>;
+  }
+  dispatch?: React.Dispatch<IAction>
 }
 
-export const BgContext= React.createContext<IStore>({
+export const BgContext = createContext<IStore>({
   state: {
     background: '#eee'
   }
-});
-
+})
 
 const reducer: React.Reducer<IState, IAction> = (state, action) => {
   switch (action.type) {
     case 'UPDATE_BG':
-      return {...state, background: action.value};
+      return { ...state, background: action.value }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export const BgSore: React.FC = ({children}) => {
-  const [state, dispatch] = React.useReducer(reducer, {background: '#eee'});
+export const BgSore: React.FC = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, { background: '#eee' })
   return (
-    <BgContext.Provider value={{state, dispatch}}>
+    <BgContext.Provider value={{ state, dispatch }}>
       {children}
     </BgContext.Provider>
-  );
-};
-
-
+  )
+}
