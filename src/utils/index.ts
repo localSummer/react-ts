@@ -1,7 +1,7 @@
-function getValue(value: unknown): string {
-  if (value instanceof Date) {
-    // 类型保护
-    return value.toISOString()
-  }
-  return String(value)
+type User = {
+  name: string
+  age: number
+  isTest: boolean
 }
+
+type a = Omit<User, 'age' | 'name'>
